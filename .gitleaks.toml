@@ -1,0 +1,32 @@
+# Default gitleaks configuration (template)
+# Docs: https://github.com/gitleaks/gitleaks
+
+title = "default-gitleaks-config"
+
+[extend]
+useDefault = true
+
+# Global allowlist for known-safe patterns (extend per repo as needed)
+[allowlist]
+description = "Global allowlist"
+regexes = [
+  '''EXAMPLE_.*''',
+  '''your-api-key-here''',
+  '''changeme''',
+  '''placeholder''',
+]
+paths = [
+  '''(?i)\.env\.example$''',
+  '''(?i)\.env\.sample$''',
+  '''(?i)\.env\.template$''',
+  '''(?i)testdata/''',
+  '''(?i)fixtures/''',
+  '''(?i)mocks/''',
+]
+
+# Example custom rule (uncomment/modify as needed)
+# [[rules]]
+# id = "custom-api-key"
+# description = "Generic API key"
+# regex = '''(?i)(api[_-]?key|apikey)\s*[:=]\s*['"]?[a-z0-9]{20,}['"]?'''
+# tags = ["key", "api"]

@@ -1,8 +1,8 @@
 # DevOps Plugin Ecosystem Spec — Single Integrated Platform
 
-**Date:** 2026-11-23  
+**Date:** 2026-11-23
 **Status:** Approved — design confirmed; implementation plan next
-**Scope:** Three high-impact plugin concepts unified into one integrated platform.  
+**Scope:** Three high-impact plugin concepts unified into one integrated platform.
 **Target Audience:** DevOps engineers managing Jenkins, Terraform, Kubernetes operators, and multi-team tooling.
 
 ---
