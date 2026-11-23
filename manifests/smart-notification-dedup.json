@@ -1,0 +1,12 @@
+{
+  "name": "smart-notification-dedup",
+  "version": "0.1.0",
+  "description": "Deduplicates and routes notifications across Slack, Discord, and email by (event_type, source, timestamp_window).",
+  "category": "dedup",
+  "platforms": ["github-actions", "slack", "discord", "email"],
+  "entrypoint": "plugins/notification-dedup",
+  "dependencies": [],
+  "api_endpoints": ["/api/notifications", "/api/notifications/stats"],
+  "cli_commands": ["devops-plugins run smart-notification-dedup '{\"id\":\"...\",\"event_type\":\"build.failure\",\"source\":\"ci\"}'"],
+  "standalone_usage": "go run ./cmd/cli run smart-notification-dedup"
+}

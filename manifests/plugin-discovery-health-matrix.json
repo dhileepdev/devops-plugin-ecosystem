@@ -1,0 +1,12 @@
+{
+  "name": "plugin-discovery-health-matrix",
+  "version": "0.1.0",
+  "description": "Centralized index of all plugins across platforms with compatibility matrix, version status, and health fields.",
+  "category": "registry",
+  "platforms": ["jenkins", "terraform", "kubernetes", "gradle", "azure-devops"],
+  "entrypoint": "plugins/registry-matrix",
+  "dependencies": [],
+  "api_endpoints": ["/api/plugins", "/api/plugins/{id}"],
+  "cli_commands": ["devops-plugins run plugin-discovery-health-matrix '{\"action\":\"list\"}'"],
+  "standalone_usage": "go run ./cmd/cli run plugin-discovery-health-matrix"
+}

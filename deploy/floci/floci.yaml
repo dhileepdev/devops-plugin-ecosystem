@@ -1,0 +1,12 @@
+service: devops-plugin-backend
+runtime: go1.24
+entrypoint: ./cmd/server
+port: 8080
+env:
+  GITHUB_TOKEN: ${GITHUB_TOKEN}
+scaling:
+  min: 1
+  max: 5
+health_check:
+  path: /api/health
+  interval: 30s

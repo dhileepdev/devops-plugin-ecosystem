@@ -1,0 +1,12 @@
+{
+  "name": "operator-lifecycle-rbac",
+  "version": "0.1.0",
+  "description": "Scans Kubernetes operator manifests for upgrade requirements, RBAC gaps, and port-forward configuration. Generates an upgrade path.",
+  "category": "analyzer",
+  "platforms": ["kubernetes"],
+  "entrypoint": "plugins/operator-analyzer",
+  "dependencies": [],
+  "api_endpoints": ["/api/operator/analyze"],
+  "cli_commands": ["devops-plugins run operator-lifecycle-rbac '{\"manifest\":\"...\",\"target_version\":\"v1.2.0\"}'"],
+  "standalone_usage": "go run ./cmd/cli run operator-lifecycle-rbac"
+}

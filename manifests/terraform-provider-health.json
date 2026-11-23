@@ -1,0 +1,13 @@
+{
+  "name": "terraform-provider-health",
+  "version": "0.1.0",
+  "description": "Surfaces bugs, panics, and performance regressions from hashicorp/terraform-plugin-sdk GitHub Issues and computes a provider health score.",
+  "category": "health",
+  "platforms": ["terraform"],
+  "entrypoint": "plugins/terraform-health",
+  "dependencies": [],
+  "api_endpoints": ["/api/health/terraform"],
+  "cli_commands": ["devops-plugins run terraform-provider-health '{\"provider\":\"...\"}'"],
+  "env": ["GITHUB_TOKEN (optional, for higher rate limits)"],
+  "standalone_usage": "go run ./cmd/cli run terraform-provider-health"
+}

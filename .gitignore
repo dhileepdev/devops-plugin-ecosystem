@@ -1,0 +1,37 @@
+# Go
+backend/*.exe
+backend/*.out
+backend/go.work
+backend/go.work.sum
+
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.vercel
+
+# Build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+devops-plugins
+/tmp/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
