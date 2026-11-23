@@ -1,8 +1,7 @@
+export const dynamic = "force-dynamic"
+
 export default async function AvailablePluginsPage() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/manifests`, {
-    next: { revalidate: 60 },
-  } as any)
-  const manifests = (await res.json()) as Array<{
+  type Manifest = {
     name: string
     version: string
     description: string
@@ -10,7 +9,16 @@ export default async function AvailablePluginsPage() {
     platforms: string[]
     cli_commands: string[]
     standalone_usage: string
-  }>
+  }
+  let manifests: Manifest[] = []
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/manifests`, {
+      next: { revalidate: 60 },
+    } as any)
+    if (res.ok) manifests = (await res.json()) as Manifest[]
+  } catch {
+    manifests = []
+  }
 
   return (
     <section className="max-w-6xl mx-auto p-6">

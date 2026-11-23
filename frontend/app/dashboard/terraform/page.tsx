@@ -14,11 +14,26 @@ interface HealthReport {
   open_issues: number
 }
 
+export const dynamic = "force-dynamic"
+
 export default async function TerraformPage() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/health/terraform`, {
-    next: { revalidate: 60 },
-  } as any)
-  const report = (await res.json()) as HealthReport
+  const empty: HealthReport = {
+    provider: "terraform",
+    status: "red",
+    open_critical_bugs: 0,
+    performance_regressions: [],
+    plan_stability: 0,
+    open_issues: 0,
+  }
+  let report: HealthReport = empty
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/health/terraform`, {
+      next: { revalidate: 60 },
+    } as any)
+    if (res.ok) report = (await res.json()) as HealthReport
+  } catch {
+    report = empty
+  }
 
   return (
     <section className="max-w-6xl mx-auto p-6">
